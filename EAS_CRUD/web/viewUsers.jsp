@@ -6,7 +6,14 @@
 
 <%@page import="Controller.UserBean"%>
 <!DOCTYPE html>
-
+<%
+    
+  String username=(String)session.getAttribute("username");
+  if (username == null)
+  {
+    response.sendRedirect("index.html");
+  }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

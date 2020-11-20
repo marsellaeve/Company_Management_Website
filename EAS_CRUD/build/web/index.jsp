@@ -6,10 +6,18 @@
 
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    
+  String username=(String)session.getAttribute("username");
+  if (username == null)
+  {
+    response.sendRedirect("index.html");
+  }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Controller Welcome Page</title>
+        <title>Employee Database</title>
     </head>
     <body>
         <%@ include file="header.html" %>  <br>
