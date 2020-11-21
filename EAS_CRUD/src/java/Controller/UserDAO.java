@@ -20,7 +20,7 @@ public class UserDAO {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmanagement", "root", "");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmanagement", "root", "");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -83,7 +83,13 @@ public class UserDAO {
 
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("select * from employees");
+//            if(user!=""){
+//                PreparedStatement ps = con.prepareStatement("select * from employees where name=?");    
+//            }
+//            else{
+//            }
+            
+                PreparedStatement ps = con.prepareStatement("select * from employees");    
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 UserBean u = new UserBean();
@@ -101,6 +107,8 @@ public class UserDAO {
         }
         return list;
     }
+    
+    
 
     public static UserBean getRecordById(int id) {
         UserBean u = null;
@@ -108,6 +116,29 @@ public class UserDAO {
             Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement("select * from employees where id=?");
             ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                u = new UserBean();
+                u.setId(rs.getInt("id"));
+                u.setName(rs.getString("name"));
+                u.setPassword(rs.getString("password"));
+                u.setEmail(rs.getString("email"));
+                u.setSex(rs.getString("gender"));
+                u.setPosition(rs.getString("position"));
+                u.setSalary(rs.getInt("salary"));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return u;
+    }
+    
+    public static UserBean getRecordByName(String name) {
+        UserBean u = null;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("select * from employees where name=?");
+            ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 u = new UserBean();

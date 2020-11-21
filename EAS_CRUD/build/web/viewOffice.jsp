@@ -25,20 +25,44 @@
         <%@page import="Controller.Branch_officeDAO, Controller.Branch_officeBean.*,java.util.*"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-        <h1>Branch Offices List</h1>
 
         <%
             List<Branch_officeBean> list = Branch_officeDAO.getAllRecords();
             request.setAttribute("list", list);
         %>
+        
+        <h1 style="text-align:center;">Branch Office Management Database</h1>
+        <a href="addOfficeForm.jsp" style="color:white; text-decoration: none;"><button id="AddNew" type="button" class="btn btn-success" style="margin-left: 100px; margin-bottom: 20px;">Add New Office</button></a>
 
-        <table border="1" width="90%">
-            <tr><th>Id</th><th>Name</th><th>Address</th><th>City</th><th>Contact</th><th>Edit</th><th>Delete</th></tr>
-                    <c:forEach items="${list}" var="u">
-                <tr><td>${u.getId()}</td><td>${u.getName()}</td><td>${u.getAddress()}</td><td>${u.getCity()}</td><td>${u.getContact()}</td><td><a href="updateOfficeForm.jsp?id=${u.getId()}">Edit</a></td><td><a href="DeleteOffice.jsp?id=${u.getId()}">Delete</a></td></tr>
+        <table class="table table-bordered table-striped table-hover" style="width:87%; margin-left: 90px;">
+            <tr>
+                <th style="text-align:center;">Id</th>
+                <th style="text-align:center;">Name</th>
+                <th style="text-align:center;">Address</th>
+                <th style="text-align:center;">City</th>
+                <th style="text-align:center;">Contact</th>
+                <th style="text-align:center;">Edit</th>
+                <th style="text-align:center;">Delete</th>
+            </tr>
+            <c:forEach items="${list}" var="u">
+            <tr>
+                <td style="text-align:center;">${u.getId()}</td>
+                <td>${u.getName()}</td>
+                <td>${u.getAddress()}</td>
+                <td>${u.getCity()}</td>
+                <td>${u.getContact()}</td>
+                <td style="text-align:center; margin:0px; padding: 0px;""><a href="updateOfficeForm.jsp?id=${u.getId()}" style="color: #fff; text-decoration: none"><button class="btn btn-primary btn-xs" data-title="Edit" style="margin-top: 5px;"><span class="fas fa-pencil-alt fa-lg"></span></button></a></td>
+                <td style="text-align:center; margin:0px; padding: 0px;"><a href="DeleteOffice.jsp?id=${u.getId()}" style="color: #fff; text-decoration: none"><button class="btn btn-danger btn-xs" data-title="Delete"style="margin-top: 5px;"><span class="fas fa-trash fa-lg"></span></button></a></td>
             </c:forEach>
         </table>
-        <br/><a href="addOfficeForm.jsp">Add New Office</a>
-
+        
+        <div class="container body-content">
+            <hr />
+            <footer>
+                <p style="text-align:center">&copy;Amel Evelyn Waldo Website</p>
+            </footer>
+        </div>
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     </body>
 </html>

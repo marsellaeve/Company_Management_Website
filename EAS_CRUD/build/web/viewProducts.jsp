@@ -25,20 +25,39 @@
         <%@page import="Controller.ProductDAO, Controller.ProductBean.*,java.util.*"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-        <h1>Products List</h1>
-
         <%
             List<ProductBean> list = ProductDAO.getAllRecords();
             request.setAttribute("list", list);
         %>
 
-        <table border="1" width="90%">
-            <tr><th>Id</th><th>Name</th><th>Price</th><th>Description</th><th>Merk</th><th>Edit</th><th>Delete</th></tr>
-                    <c:forEach items="${list}" var="u">
-                <tr><td>${u.getId()}</td><td>${u.getName()}</td><td>${u.getPrice()}</td><td>${u.getDescription()}</td><td>${u.getMerk()}</td><td><a href="updateProductForm.jsp?id=${u.getId()}">Edit</a></td><td><a href="DeleteProduct.jsp?id=${u.getId()}">Delete</a></td></tr>
+        <h1 style="text-align:center;">Products Management Database</h1>
+        <a href="addProductForm.jsp" style="color:white; text-decoration: none;"><button id="AddNew" type="button" class="btn btn-success" style="margin-left: 100px; margin-bottom: 20px;">Add New Products</button></a>
+
+        <table class="table table-bordered table-striped table-hover" style="width:87%; margin-left: 90px;">
+            <tr>
+                <th style="text-align:center;">Id</th>
+                <th style="text-align:center;">Name</th>
+                <th style="text-align:center;">Price</th>
+                <th style="text-align:center;">Description</th>
+                <th style="text-align:center;">Merk</th>
+                <th style="text-align:center;">Edit</th>
+                <th style="text-align:center;">Delete</th>
+            </tr>
+            
+            <c:forEach items="${list}" var="u">
+                
+            <tr>
+                <td style="text-align:center;">${u.getId()}</td>
+                <td>${u.getName()}</td>
+                <td style="text-align:center;">${u.getPrice()}</td>
+                <td>${u.getDescription()}</td>
+                <td>${u.getMerk()}</td>
+                <td style="text-align:center; margin:0px; padding: 0px;""><a href="updateProductForm.jsp?id=${u.getId()}" style="color: #fff; text-decoration: none"><button class="btn btn-primary btn-xs" data-title="Edit" style="margin-top: 5px;"><span class="fas fa-pencil-alt fa-lg"></span></button></a></td>
+                <td style="text-align:center; margin:0px; padding: 0px;"><a href="DeleteProduct.jsp?id=${u.getId()}" style="color: #fff; text-decoration: none"><button class="btn btn-danger btn-xs" data-title="Delete"style="margin-top: 5px;"><span class="fas fa-trash fa-lg"></span></button></a></td>
+            </tr>
             </c:forEach>
         </table>
-        <br/><a href="addProductForm.jsp">Add New Product</a>
-
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     </body>
 </html>
