@@ -28,5 +28,7 @@ out.println("Invalid password or username.");
 }
 catch (Exception e) {
 e.printStackTrace();
+out.println("Invalid password or username.");
+response.sendRedirect("index.html");
 }
 %>

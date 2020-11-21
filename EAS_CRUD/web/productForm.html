@@ -205,52 +205,43 @@ and open the template in the editor.
         </style>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
-        <title>Login</title>
+        <title>Add Product</title>
     </head>
     
     <body>
-        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" id="navigasi" href="#">Amelia.Evelyn.Waldo Website</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active hoverable"><a class="nav-link" href="register.html"><i class="fa fa-home"></i>Home<span class="sr-only">(current)</span></a></li>
-              </ul> 
-            </div>
-        </nav>  
-        
         <section class="sign-in">
             <div class="container">
                 <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="signin-image.jpg" alt="sing up image"></figure>
-                        <a href="register.html" class="signup-image-link">Create an account</a>
-                    </div>
                     <div class="signin-form">
-                        <h2 class="form-title" style="text-align:center; font-family:Patua One; font-size:50px; margin-bottom:35px;">Sign In</h2>
-                        <form action="login.jsp" method="post">    
+                        <h2  style="text-align:center; font-family:Patua One; font-size:50px; margin-bottom:35px;">Add a Product</h2>
+                        <form action="addProduct.jsp" method="post">    
                             <div class="form-group ">
-                                <span class="fas fa-user-alt" aria-hidden="true" style="font-size:24px;"></span>
-                                <label class="control-label" for="Username" style="font-size: 18px;">Username</label>
-                                <input autocomplete="off" class="form-control text-box single-line" data-val="true" data-val-required="Username required" name="userid" placeholder="Enter Username" tabindex="2" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                                <label class="control-label" for="Name" style="font-size: 18px;">Name</label>
+                                <input autocomplete="off" class="form-control" data-val="true" data-val-required="Name required" name="name" placeholder="Enter Name" tabindex="3" type="text">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
                             </div>
-                            <div class="form-group">
-                                <span class="fas fa-lock" aria-hidden="true" style="font-size:24px;"></span>
-                                <label class="control-label" for="Password" style="font-size: 18px;">Password</label>
-                                <input autocomplete="off" class="form-control" data-val="true" data-val-required="Password required" name="password" placeholder="Enter Password" tabindex="3" type="password">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                            <div class="form-group ">
+                                <label class="control-label" for="Price" style="font-size: 18px;">Price</label>
+                                <input autocomplete="off" class="form-control" data-val="true" data-val-required="Price required" name="price" placeholder="Enter Price" tabindex="3" type="number">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Price" data-valmsg-replace="true"></span>
+                            </div>   
+                            <div class="form-group ">
+                                <label class="control-label" for="Description" style="font-size: 18px;">Description</label>
+                                <input autocomplete="off" class="form-control" data-val="true" data-val-required="Description required" name="description" placeholder="Enter Description" tabindex="3" type="text">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Description" data-valmsg-replace="true"></span>
                             </div>
+                            <div class="form-group ">
+                                <label class="control-label" for="Merk" style="font-size: 18px;">Merk</label>
+                                <input autocomplete="off" class="form-control" data-val="true" data-val-required="Merk required" name="merk" placeholder="Enter Merk" tabindex="3" type="text">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Merk" data-valmsg-replace="true"></span>
+                            </div>
+                            
                             <div class="form-group">
                                 <div class="col text-center">
-                                    <button class="btn btn-success btn-lg" tabindex="3" type="submit">Login</button>
+                                    <button class="btn btn-success btn-lg" tabindex="3" type="submit">Submit</button>
                                 </div>
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term">
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
+                            
                         </form>
                     </div>
                 </div>

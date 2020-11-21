@@ -1,6 +1,6 @@
 <%-- 
-    Document   : errorPage
-    Created on : Nov 20, 2020, 7:38:33 PM
+    Document   : addProductForm
+    Created on : Nov 21, 2020, 5:03:19 PM
     Author     : marsellaeve
 --%>
 
@@ -17,13 +17,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add User Success</title>
+<title>Product Add</title>
 </head>
-<body bgcolor>
-<%@ include file="header.html" %>
+<body>
+     <%@ include file="header.html" %>  <br>
 
-<p>Sorry, an error occurred!</p>
-<jsp:include page="userForm.html"></jsp:include>
+<jsp:include page="productForm.html"></jsp:include>
 
 </body>
 </html>

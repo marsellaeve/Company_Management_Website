@@ -12,8 +12,8 @@
 <%
 int i=UserDAO.save(u);
 if(i>0){
-response.sendRedirect("AddUserSuccess.jsp");
+response.sendRedirect("viewUsers.jsp");
 }else{
-response.sendRedirect("errorPage.jsp");
+response.sendRedirect("viewUsers.jsp");
 }
 %>

@@ -18,7 +18,8 @@ Class.forName("com.mysql.cj.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmanagement", "root", "");
 Statement st=conn.createStatement();
 int i=st.executeUpdate("insert into users(fname,lname,email,userid,password)values('"+fname+"','"+lname+"','"+email+"','"+userid+"','"+password+"')");
-out.println("Thank you for register ! Please <a href='index.html'>Login</a> to continue.");
+out.println("Thank you for register !");
+response.sendRedirect("index.html");
 }
 catch(Exception e)
 {

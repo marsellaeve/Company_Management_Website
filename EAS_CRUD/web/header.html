@@ -12,31 +12,176 @@ and open the template in the editor.
                 display: inline-block;
                 padding: 0px 5px;
             }
+            
             #navigation ul li a{
                 color:#fff;
                 text-decoration: none;
             }
+            
             #navigation {
                 background: #4062b7;
                 padding: 3px
             }
+            
+            #navigasi {
+                margin-right: 30px; 
+                margin-left: 30px; 
+            }
+            
+            .hoverable{
+                display:inline-block;
+                backface-visibility: hidden;
+                vertical-align: middle;
+                position:relative;
+                box-shadow: 0 0 1px rgba(0,0,0,0);
+                tranform: translateZ(0);
+                transition-duration: .3s;
+                transition-property:transform;
+            }
+
+            .hoverable:before{
+                  position:absolute;
+                  pointer-events: none;
+                  z-index:-1;
+                  content: '';
+                  top: 100%;
+                  left: 5%;
+                  height:10px;
+                  width:90%;
+                  opacity:0;
+                  background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+                  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+                  transition-duration: 0.3s;
+                  transition-property: transform, opacity;
+            }
+
+            .hoverable:hover, .hoverable:active, .hoverable:focus{
+                  transform: translateY(-5px);
+            }
+            .hoverable:hover:before, .hoverable:active:before, .hoverable:focus:before{
+                  opacity: 1;
+                  transform: translateY(-5px);
+            }
+
+            @keyframes bounce-animation {
+                  16.65% {
+                    -webkit-transform: translateY(8px);
+                    transform: translateY(8px);
+                  }
+                  33.3% {
+                    -webkit-transform: translateY(-6px);
+                    transform: translateY(-6px);
+                  }
+                  49.95% {
+                    -webkit-transform: translateY(4px);
+                    transform: translateY(4px);
+                  }
+                  66.6% {
+                    -webkit-transform: translateY(-2px);
+                    transform: translateY(-2px);
+                  }
+                  83.25% {
+                    -webkit-transform: translateY(1px);
+                    transform: translateY(1px);
+                  }
+                  100% {
+                    -webkit-transform: translateY(0);
+                    transform: translateY(0);
+                  }
+            }
+
+            .bounce {
+                  animation-name: bounce-animation;
+                  animation-duration: 2s;
+            }
+            
+            .sideNav {
+                height: 100%;
+                width: 0;
+                font-family: 'Londrina', sans-serif;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                color: #ffffff;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 30px;
+              }
+
+              .sideNav > h6 {
+                margin-left: 65px;
+              }
+
+              .sideNav > h4 {
+                margin-left: 56px;
+              }
+
+              .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+              }
+
+              .sideNav .closeSidenav {
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+              }
+
+              .closeSidenav {
+                width: 20px;
+                height: 20px;
+              }
+            .mySideNav.active {
+                margin-left: 250px;
+            }
+            
+            #profilePicture {
+                margin-left: 13px;
+                margin-top: 20px;
+                border-radius: 200px;
+                max-width: 100%;
+                height: auto;
+              }
         </style>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     </head>
-    <body bgcolor="grey">
-        <div id="header">
-            <div class="shell">
+    
+    <body>
+        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" id="navigasi" href="index.jsp">Amelia.Evelyn.Waldo Website</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div id="navigation">
-                    <ul>
-                        <li><a href="index.jsp" class="active">Home</a></li>
-                        <li><a href="viewUsers.jsp">View Employees</a></li>
-
-                        <li><a href="logout.jsp">Logout</a></li>
-
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item hoverable"><a class="nav-link" href="index.jsp"><i class="fa fa-home"></i>Home<span class="sr-only">(current)</span></a></li>
+                  <li class="nav-item hoverable"><a class="nav-link" href="viewUsers.jsp"><i class="fa fa-users" aria-hidden="true"></i>Employee</a></li>
+                  <li class="nav-item hoverable"><a class="nav-link" href="viewOffice.jsp"><i class="fa fa-building" aria-hidden="true"></i>Branch Office</a></li>
+                  <li class="nav-item hoverable"><a class="nav-link" href="viewProducts.jsp"><i class="fa fa-archive" aria-hidden="true"></i>Products</a>
+                </ul>
+                
+    <!--        <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>-->
+    
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item hoverable" style="margin-left:30px;"><a class="nav-link" href="logout.jsp">Logout</a></li>
+                </ul>
             </div>
-        </div>
-
+        </nav>
+        
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     </body>
 </html>
